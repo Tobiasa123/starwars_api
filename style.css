@@ -33,15 +33,20 @@ body{
 }
 .pageButtonWrapper{
     height: 3rem;
-    width: 20rem;
+    width: 30rem;
     display: flex;
     flex-direction: row;
+    text-align: center;
 }
 .previousButton{
     width: 50%;
 }
 .nextButton{
     width: 50%;
+}
+.currentPage{
+    width: 10rem;
+    background-color: white;
 }
 
 .infoHeader{

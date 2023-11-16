@@ -7,6 +7,7 @@ let infoText = document.querySelector(".infoText")
 let planetInfo = document.querySelector(".planetInfo")
 let previousButton = document.querySelector(".previousButton")
 let nextButton = document.querySelector(".nextButton")
+let currentPage = document.querySelector(".currentPage")
 
 
 //få fram page
@@ -24,27 +25,26 @@ loadPage();
 
 //eventlistener för knappen bak
 nextButton.addEventListener('click', async function() {
-
     if (page < 8) {
         clearButtons()
         nextButton.disabled = true
         previousButton.disabled = true
         page += 1;
+        currentPage.textContent = `${page}/8`
         url = `https://swapi.dev/api/people/?page=${page}`;
         const data = await getData();
         createButtons(data)
     }
     
 });
-
 //eventlistener för knappen fram
 previousButton.addEventListener('click', async function() {
-    
     if (page > 1) {
         clearButtons()
         nextButton.disabled = true
         previousButton.disabled = true
         page -= 1;
+        currentPage.textContent = `${page}/8`
         url = `https://swapi.dev/api/people/?page=${page}`;
         const data = await getData();
         createButtons(data)
