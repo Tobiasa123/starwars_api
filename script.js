@@ -8,17 +8,22 @@ let planetInfo = document.querySelector(".planetInfo")
 let previousButton = document.querySelector(".previousButton")
 let nextButton = document.querySelector(".nextButton")
 let currentPage = document.querySelector(".currentPage")
-
+//skapa nytt bild element med src till gif
+let img = new Image();
+img.src = 'assets/loading.gif';
+img.classList.add("loadingImage")
 
 //få fram page
 let params = new URLSearchParams(new URL(url).search);
 let page = parseInt(params.get('page'));
 
-
-
 async function loadPage() {
-    buttonSection.innerHTML = `<h2>Loading character data...</h2>`;
+    buttonSection.innerHTML = `<h2>Loading character data...</h2>`; //lägg till bild här
     buttonSection.style.color = "yellow"
+
+    //lägg till gif
+    buttonSection.appendChild(img);
+
     const data = await getData();
     createButtons(data);
 }
@@ -90,6 +95,7 @@ async function createButtons(data){
             
             
             planetInfo.innerHTML = `<h2>Fetching planet data...</h2>`; 
+            planetInfo.appendChild(img);
             //själva url som vi fetchar i getWorld metoden
             let worldUrl = `${element.homeworld}`
             let homeworldInfo = await getWorld(worldUrl)
@@ -131,5 +137,6 @@ function enableButtons(){
 
 function clearButtons() {
     buttonSection.innerHTML = `<h2>Loading character data...</h2>`;
+    buttonSection.appendChild(img);
 }
 
