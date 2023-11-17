@@ -17,7 +17,8 @@ let page = parseInt(params.get('page'));
 
 
 async function loadPage() {
-    buttonSection.innerHTML = `<h2>Loading characters...</h2>`;
+    buttonSection.innerHTML = `<h2>Loading character data...</h2>`;
+    buttonSection.style.color = "yellow"
     const data = await getData();
     createButtons(data);
 }
@@ -69,7 +70,6 @@ async function createButtons(data){
     //enable knapparna igen
     nextButton.disabled = false
     previousButton.disabled = false
-
     //skapa knappar
     data.results.forEach(element => {
         console.log(element.name)
@@ -77,6 +77,8 @@ async function createButtons(data){
         btn.classList.add("buttons")
         btn.textContent = element.name
         btn.addEventListener('click', async () => {
+            //disable all buttons after click
+            disableButtons()
             infoText.innerHTML = `
             <p>Name: ${element.name}</p>
             <p>Height: ${element.height}</p>
@@ -85,12 +87,16 @@ async function createButtons(data){
             <p>Skin color: ${element.skin_color}</p>
             <p>Gender: ${element.gender}</p>`
 
-
+            
+            
             planetInfo.innerHTML = `<h2>Fetching planet data...</h2>`; 
             //själva url som vi fetchar i getWorld metoden
             let worldUrl = `${element.homeworld}`
             let homeworldInfo = await getWorld(worldUrl)
             planetInfo.innerHTML = homeworldInfo
+
+            //enable all buttons after fetched data
+            enableButtons()
         })
         buttonSection.appendChild(btn)
     })
@@ -110,8 +116,20 @@ async function getWorld(url){
     <p> Terrain: ${data.terrain} </p>`
     return worldInfo
 } 
+function disableButtons(){
+    let buttons = document.querySelectorAll('.buttons');
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+}
+function enableButtons(){
+    let buttons = document.querySelectorAll('.buttons');
+    buttons.forEach(button => {
+        button.disabled = false;
+    });
+}
 
 function clearButtons() {
-    buttonSection.innerHTML = `<h2>Loading characters...</h2>`;
+    buttonSection.innerHTML = `<h2>Loading character data...</h2>`;
 }
 
