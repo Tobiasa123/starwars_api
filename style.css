@@ -12,7 +12,7 @@ body{
     align-items: center;
     flex-direction: column;
     background-color: rgb(19, 4, 38);
-    background-image: url(assets/starwars_backgroundimg.jpg);
+    background-image: url(assets/starwars_img.jpg);
     background-size: cover;
     background-position: 0;
     background-repeat: no-repeat;
