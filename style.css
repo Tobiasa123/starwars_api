@@ -45,13 +45,34 @@ body{
     background-color: rgb(41, 41, 41);
     color: yellow;
     font-family: 'Poller One', serif;
+    font-size: 2rem;
     transition-duration:200ms;
+    
 }
 .buttons:hover{
     transform: scale(1.1);
     transition: 100ms ease-in-out;
-    
+    /*box-shadow: 0px 0px 10px 15px rgb(241, 255, 49);*/
+    background: rgb(41, 41, 41) linear-gradient(to right, rgb(89, 0, 255) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    animation: slide 0.5s ease-in-out forwards,  pulse 0.8s ease-in-out infinite 0.5s;
 }
+
+@keyframes slide {
+    to {
+      background-position: left bottom;
+    }
+}
+@keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.80;
+    }
+}
+
 .pageButtonWrapper{
     height: 5rem;
     width: 40rem;
