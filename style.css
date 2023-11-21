@@ -189,6 +189,7 @@ body{
     font-size: 150%;
     color: rgb(255, 49, 49);
     background-color: rgb(82, 82, 82);
+    border: 0.2rem double rgb(0, 0, 0) ;
     height: 100%;
     justify-content: center;
     padding-right: 1rem;
@@ -203,14 +204,14 @@ body{
     align-items: center;
     width: 95%;
     height: 40%;
-    background-color: rgb(64, 33, 165);
+    background-color: rgb(8, 73, 184);
     border-bottom-right-radius: 2rem;
     border-top-left-radius: 2rem;
     font-size: 125%;
     /*text-decoration: underline;*/
     margin-bottom: 2rem;
-    color: rgb(243, 66, 211);
-    border: 0.2rem outset rgb(243, 66, 211) ;
+    color: rgb(200, 200, 200);
+    border: 0.2rem outset rgb(107, 107, 107) ;
 }
 .planetInfo h2{
     text-decoration:underline
