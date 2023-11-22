@@ -8,7 +8,7 @@ let planetInfo = document.querySelector(".planetInfo")
 let previousButton = document.querySelector(".previousButton")
 let nextButton = document.querySelector(".nextButton")
 let currentPage = document.querySelector(".currentPage")
-//skapa nytt bild element med src till gif
+
 let img = new Image();
 img.src = 'assets/loading.gif';
 img.classList.add("loadingImage")
@@ -18,7 +18,7 @@ let params = new URLSearchParams(new URL(url).search);
 let page = parseInt(params.get('page'));
 
 async function loadPage() {
-    buttonSection.innerHTML = `<h2>Loading character data...</h2>`; //lägg till bild här
+    buttonSection.innerHTML = `<h2>Loading character data...</h2>`;
     buttonSection.style.color = "yellow"
 
     //lägg till gif
@@ -66,7 +66,6 @@ async function getData(){
 } 
 getData();
 
-//skapa knappar med textcontent name i api
 async function createButtons(data){
 
     //tar bort loading texten
@@ -134,7 +133,6 @@ function enableButtons(){
         button.disabled = false;
     });
 }
-
 function clearButtons() {
     buttonSection.innerHTML = `<h2>Loading character data...</h2>`;
     buttonSection.appendChild(img);
